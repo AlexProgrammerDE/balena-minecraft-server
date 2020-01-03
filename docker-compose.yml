@@ -1,0 +1,21 @@
+version: '2'
+services:
+  mc-server:
+    network_mode: host
+    restart: always
+    build: ./mc-server
+    privileged: true
+    labels:
+      io.balena.features.dbus: 1
+    volumes:
+      - serverfiles:/usr/src/serverfiles
+    ports:
+      - "25565:25565/udp"
+      - "25565:25565/tcp"
+      - "25575:25575/udp"
+      - "25575:25575/tcp"
+      - "22:22/udp"
+      - "22:22/tcp"
+      
+volumes:
+  serverfiles:
