@@ -56,7 +56,3 @@ There are many clients, but you can pick one here:
 * mcrcon: https://github.com/Tiiffi/mcrcon/releases
 
 **NOTE:** You will need for starting this script this batchfile if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat
-
-* icecon: https://github.com/icedream/icecon/releases
-
-**Note:** It is working, but old don´t wonder if it doesn´t work. It does work at the moment. 
