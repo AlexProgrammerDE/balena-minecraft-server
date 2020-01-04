@@ -59,4 +59,4 @@ There are many clients, but you can pick one here:
 
 * icecon: https://github.com/icedream/icecon/releases
 
-**Note: ** It is working,but old don´t wonder if it doesn´t work. It does work at the moment. 
+**Note:** It is working,but old don´t wonder if it doesn´t work. It does work at the moment. 
