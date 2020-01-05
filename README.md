@@ -1,9 +1,9 @@
 ![Balena Server Logo](images/logo.png)
 
-# A Minecraft server for the Raspberry Pi 4.
+# A Minecraft server for the Raspberry Pi 4 :star2:
 **Starter project enabling you a Mineccaft Server using just a Raspberry Pi.**
 
-This project has been tested on Raspberry Pi 4 B 1GB and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things.
+This project has been tested on Raspberry Pi 4 B 1GB and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
 
 ## Why balenaServer?
 
@@ -44,7 +44,7 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 * Login with `balena login`
 * Download this project and from the project directory run `balena push <appName>` where `<appName>` is the name you gave your balenaCloud application in the first step.
 
-## Connect to the server
+## Connect to the server :satellite:
 
 You can see in the Dashboard one IP-adress. It is the from your server. One example:
 
@@ -58,7 +58,7 @@ Now you are the one with a balenaServer :sunglasses::
 
 ![Minecraft Screenshot](images/minecraft-screenshot.png)
 
-## Connect to the terminal
+## Connect to the terminal :satellite:
 
 The server has no console input option in the cloud dashboard, so you need `RCON`. It is a protocol for connecting to the server.
 There are many clients, but you can pick one here:
@@ -67,13 +67,13 @@ There are many clients, but you can pick one here:
 
 **NOTE:** You will need for starting this script this batchfile if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat
 
-## Connect to the file-directory
+## Connect to the file-directory :satellite:
 
 You can connect to the server and change your serverfiles. I recommend using a Tool like [WinSCP](https://winscp.net/).
 The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balenaserver`.
 The files are in the root directory folder `serverfiles`. 
 
-## Update balenaServer
+## Update balenaServer 
 
 You can update balenaServer with doing the `git clone` and `balena` steps again, but if you don´t want to keep the world must you set before doing that stuff a enviroment variable. It is `CACHE_IGNORE`. It ignores the saved world temporary, until you delete the enviroment variable. The balena preconfigured world gets loaded.
 
