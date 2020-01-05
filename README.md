@@ -5,6 +5,13 @@
 
 This project has been tested on Raspberry Pi 4 B 1GB and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things.
 
+## Why balenaServer?
+
+* It works out of the box, just start it and it just works.  :+1:
+* You can play anywhere. You can take the Pi to a friend, connect to his Wifi and enjoy playing. :video_game:
+* It is free. No costs, no big server and no complication. :heavy_dollar_sign:
+* Why hosting on a computer? A Pi is power efficient! :electric_plug:
+
 ## Hardware required
 
 * Raspberry Pi 4B
