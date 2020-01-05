@@ -79,6 +79,10 @@ You can update balenaServer with doing the `git clone` and `balena` steps again,
 
 **NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
 
+## Half RAM (optional) :last_quarter_moon:
+
+Devices like the Raspberry Pi 4B 1GB have not enough RAM to run the server (You need more than 1GB). But if you set `HALF_RAM` to `true` if the half of RAM used(500MB).
+
 ## Custom Server (optional) :eyeglasses:
 
 You can also add with the scp feature new servers. You want something different, but don´t know where to start? Here are some servers listed:
