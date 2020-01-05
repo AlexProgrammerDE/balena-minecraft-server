@@ -99,6 +99,6 @@ Not satisfied:expressionless:? There are many tutorials, just google it. If you 
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
 
-Here is a little server demo (10 FPS):
+Here is a little server demo (10 FPS):crown::
 
 ![Server Demo](images/server-demo.gif)
