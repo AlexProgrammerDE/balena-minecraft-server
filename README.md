@@ -77,13 +77,11 @@ The files are in the root directory folder `serverfiles`.
 
 ## Update balenaServer :arrows_counterclockwise:
 
-You can update balenaServer with doing the `git clone` and `balena` steps again, but if you don´t want to keep the world must you set before doing that stuff a enviroment variable. It is `CACHE_IGNORE`. It ignores the saved world temporary, until you delete the enviroment variable. The balena preconfigured world gets loaded.
-
-**NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
+You can simply update balenaServer with doing the `git clone` and `balena` steps again.
 
 ## Double RAM (optional) :link:
 
-Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM. If you set `DOUBLE_RAM` to `true` will be the double of RAM used(2GB).
+Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM(at defaulf 1GB). If you set `DOUBLE_RAM` to `true` will be the double of RAM used.
 
 ## Custom Server (optional) :eyeglasses:
 
