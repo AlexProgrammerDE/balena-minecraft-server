@@ -56,6 +56,10 @@ In my case is it `192.168.178.35`. You can connect to it like that:
 
 ![Server-IP](images/Server-IP.png)
 
+Now you are the one with a balenaServer :sunglasses::
+
+![Minecraft Screenshot](images/minecraft-screenshot.png)
+
 ## Connect to the terminal
 
 The server has no console input option in the cloud dashboard, so you need `RCON`. It is a protocol for connecting to the server.
