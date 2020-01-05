@@ -9,7 +9,7 @@ This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend us
 
 * It works out of the box, just start it and it just works. :+1:
 * You can play anywhere. You can take the Pi to a friend, connect to his Wifi and enjoy playing. :video_game:
-* It is free. No costs, no big server and no complication. :moneybag:
+* It is free. No costs, no big server and no complication. :free:
 * Why hosting on a computer? A Pi is power efficient! :rocket:
 * You can easy maintain the files on the Pi by using your PC. :computer:
 
@@ -73,13 +73,13 @@ You can connect to the server and change your serverfiles. I recommend using a T
 The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balenaserver`.
 The files are in the root directory folder `serverfiles`. 
 
-## Update balenaServer 
+## Update balenaServer :arrows_counterclockwise:
 
 You can update balenaServer with doing the `git clone` and `balena` steps again, but if you don´t want to keep the world must you set before doing that stuff a enviroment variable. It is `CACHE_IGNORE`. It ignores the saved world temporary, until you delete the enviroment variable. The balena preconfigured world gets loaded.
 
 **NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
 
-## Custom Server (optional)
+## Custom Server (optional) :eyeglasses:
 
 You can also add with the scp feature new servers. You want something different, but don´t know where to start? Here are some servers listed:
 
@@ -94,7 +94,3 @@ You can also add with the scp feature new servers. You want something different,
 Not satisfied:expressionless:? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Spigot, which is very good.  
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
-
-A balenaServer looks like this:eyeglasses::
-
-![Server Picture](images/minecraft-server.png)
