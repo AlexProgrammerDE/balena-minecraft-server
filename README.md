@@ -79,4 +79,18 @@ You can update balenaServer with doing the `git clone` and `balena` steps again,
 
 **NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
 
+## Custom Server (optional)
+
+You can also add with the scp feature new servers. You want something different, but don´t know where to start? Here are some servers listed:
+
+* Spigot (Vanilla Java Edition): https://getbukkit.org/download/spigot
+* Craftbuckit (Vanilla Java Edition): https://getbukkit.org/download/craftbukkit
+* Vanilla from Minecraft (Vanilla Java Edition): https://getbukkit.org/download/vanilla
+* Paper (Vanilla Java Edition): https://papermc.io/downloads
+* Forge (Modded Java Edition): http://files.minecraftforge.net/
+* Pocketmine-MP (Vanilla Pocket Edition): https://pmmp.readthedocs.io/en/rtfd/installation.html
+* Bedrock from Microsoft (Vanilla Bedrock Edition): https://www.minecraft.net/de-de/download/server/bedrock/
+
+Not satisfied? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Spigot, which is very good.  
+
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
