@@ -7,17 +7,17 @@ This project has been tested on Raspberry Pi 4 B 1GB and Raspberry Pi 4 B 4GB. W
 
 ## Why balenaServer?
 
-* It works out of the box, just start it and it just works.  :+1:
+* It works out of the box, just start it and it just works. :+1:
 * You can play anywhere. You can take the Pi to a friend, connect to his Wifi and enjoy playing. :video_game:
-* It is free. No costs, no big server and no complication. :heavy_dollar_sign:
-* Why hosting on a computer? A Pi is power efficient! :electric_plug:
+* It is free. No costs, no big server and no complication. :moneybag:
+* Why hosting on a computer? A Pi is power efficient! :rocket:
 * You can easy maintain the files on the Pi by using your PC. :computer:
 
 ## Hardware required
 
-* Raspberry Pi 4B (The best is 4GB)
-* SD Card (we recommend 8GB Sandisk Extreme Pro)
-* Power supply
+* Raspberry Pi 4B (The best is 4GB) :tada:
+* SD Card (we recommend 8GB Sandisk Extreme Pro) :floppy_disk:
+* Power supply :electric_plug:
 
 ## Software required
 
