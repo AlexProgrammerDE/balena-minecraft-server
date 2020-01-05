@@ -79,9 +79,9 @@ You can update balenaServer with doing the `git clone` and `balena` steps again,
 
 **NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
 
-## Half RAM (optional) :last_quarter_moon:
+## Double RAM (optional) :last_quarter_moon:
 
-Devices like the Raspberry Pi 4B 1GB have not enough RAM to run the server (You need more than 1GB). But if you set `HALF_RAM` to `true` is the half of RAM used(500MB).
+Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM. If you set `DOUBLE_RAM` to `true` will be the double of RAM used(2GB).
 
 ## Custom Server (optional) :eyeglasses:
 

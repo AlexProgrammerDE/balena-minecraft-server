@@ -21,10 +21,10 @@ cd /usr/src/serverfiles/
 
 while : ; do
 
-if [[ -z "$HALF_RAM" ]]; then
+if [[ -z "$DOUBLE_RAM" ]]; then
 java -Xms1G -Xmx1G -jar *.jar
 else
-java -Xms512M -Xmx512M -jar *.jar
+java -Xms2G -Xmx2G -jar *.jar
 fi
 sleep 10
 done
