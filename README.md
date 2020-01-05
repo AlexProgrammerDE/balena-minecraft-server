@@ -15,7 +15,7 @@ This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend us
 
 ## Hardware required
 
-* Raspberry Pi 4B (The best is 4GB) :tada:
+* Raspberry Pi 4B (The best is 4GB. 1GB is not enough.) :tada:
 * Micro SD Card (we recommend 8GB Sandisk Extreme Pro) :floppy_disk:
 * Power supply :electric_plug:
 
@@ -79,7 +79,7 @@ You can update balenaServer with doing the `git clone` and `balena` steps again,
 
 **NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
 
-## Double RAM (optional) :last_quarter_moon:
+## Double RAM (optional) :link:
 
 Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM. If you set `DOUBLE_RAM` to `true` will be the double of RAM used(2GB).
 
