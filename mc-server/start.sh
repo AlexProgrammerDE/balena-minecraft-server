@@ -5,7 +5,7 @@ if [[ -z "$CACHE_IGNORE" ]]; then
 cd /servercache/
 
 if [[ ! -a "copied.txt" ]]; then
-cp -R /serverfiles /usr/src/serverfiles/
+cp -R /serverfiles /usr/src/
 cd /usr/src/serverfiles/
 wget -O spigot.jar https://github.com/AlexProgrammerDE/Example-Server/raw/master/spigot.jar
 cd /servercache/
