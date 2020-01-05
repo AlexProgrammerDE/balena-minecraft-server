@@ -60,12 +60,14 @@ Now you are the one with a balenaServer :sunglasses::
 
 ## Connect to the terminal :satellite:
 
-The server has no console input option in the cloud dashboard, so you need `RCON`. It is a protocol for connecting to the server.
+The server has no console input option in the cloud dashboard, so you need `RCON`. The port is `25575` and the password is `balenaServer`. It is a protocol for connecting to the server.
 There are many clients, but you can pick one here:
 
 * mcrcon: https://github.com/Tiiffi/mcrcon/releases
 
 **NOTE:** You will need for starting this script this batchfile if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat
+
+* Minecraft Server RCON: https://mega.nz/#!SgAAyaxJ!6LQb3HMmms8QjslHH31_4SXdmIjWR-6G6H2aU_KanBY
 
 ## Connect to the file-directory :satellite:
 
