@@ -69,3 +69,9 @@ There are many clients, but you can pick one here:
 You can connect to the server and change your serverfiles. I recommend using a Tool like [WinSCP](https://winscp.net/).
 The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balenaserver`.
 The files are in the root directory folder `serverfiles`. 
+
+## Update balenaServer
+
+You can update balenaServer with doing the `git clone` and `balena` steps again, but if you don´t want to keep the world must you set before doing that stuff a enviroment variable. It is `CACHE_IGNORE`. It ignores the saved world temporary, until you delete the enviroment variable. The balena preconfigured world gets loaded.
+
+**NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
