@@ -44,8 +44,6 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 * Login with `balena login`
 * Download this project and from the project directory run `balena push <appName>` where `<appName>` is the name you gave your balenaCloud application in the first step.
 
-This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
-
 ## Connect to the server
 
 You can see in the Dashboard one IP-adress. It is the from your server. One example:
@@ -80,3 +78,5 @@ The files are in the root directory folder `serverfiles`.
 You can update balenaServer with doing the `git clone` and `balena` steps again, but if you don´t want to keep the world must you set before doing that stuff a enviroment variable. It is `CACHE_IGNORE`. It ignores the saved world temporary, until you delete the enviroment variable. The balena preconfigured world gets loaded.
 
 **NOTE:** The Pi will restart. Don´t forget to delete the enviroment variable after that restart! 
+
+This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
