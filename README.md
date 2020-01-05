@@ -98,3 +98,7 @@ You can also add with the scp feature new servers. You want something different,
 Not satisfied:expressionless:? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Spigot, which is very good.  
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
+
+Here is a little server demo (10 FPS):
+
+![Server Demo](images/server-demo.gif)
