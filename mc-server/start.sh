@@ -19,8 +19,12 @@ fi
 
 cd /usr/src/serverfiles/
 
-while :
-do
-java -Xms1G -Xmx1G -jar spigot.jar
+while : ; do
+
+if [[ -z "$HALF_RAM" ]]; then
+java -Xms1G -Xmx1G -jar *.jar
+else
+java -Xms512M -Xmx512M -jar *.jar
+fi
 sleep 10
 done
