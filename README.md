@@ -16,7 +16,7 @@ This project has been tested on Raspberry Pi 4 B 1GB and Raspberry Pi 4 B 4GB. W
 ## Hardware required
 
 * Raspberry Pi 4B (The best is 4GB) :tada:
-* SD Card (we recommend 8GB Sandisk Extreme Pro) :floppy_disk:
+* Micro SD Card (we recommend 8GB Sandisk Extreme Pro) :floppy_disk:
 * Power supply :electric_plug:
 
 ## Software required
