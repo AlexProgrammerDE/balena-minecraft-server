@@ -1,6 +1,6 @@
 ![Balena Server Logo](images/logo.png)
 
-# A Minecraft server for the Raspberry Pi 4 
+# A Minecraft server for the Raspberry Pi 4.
 **Starter project enabling you a Mineccaft Server using just a Raspberry Pi.**
 
 This project has been tested on Raspberry Pi 4 B 1GB and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things.
@@ -40,7 +40,7 @@ This project is in active development so if you have any feature requests or iss
 
 ## Connect to the server
 
-You can see in the Dashboard two ip-adresses. One of them is the from your server. One example:
+You can see in the Dashboard one IP-adress. It is the from your server. One example:
 
 ![IP-Adress](images/IP-Adress.png)
 
@@ -56,3 +56,9 @@ There are many clients, but you can pick one here:
 * mcrcon: https://github.com/Tiiffi/mcrcon/releases
 
 **NOTE:** You will need for starting this script this batchfile if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat
+
+## Connect to the file-directory
+
+You can connect to the server and change your serverfiles. I recommend using a Tool like [WinSCP](https://winscp.net/).
+The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balenaserver`.
+The files are in the root directory folder `serverfiles`. 
