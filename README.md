@@ -26,11 +26,11 @@ This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend us
 * A free [balenaCloud](https://balena.io/cloud) account
 * The [balena CLI tools](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md)
 
-## Setup and use
+## Setup and use :stars:
 
 To run this project is as simple as deploying it to a balenaCloud application; no additional configuration is required.
 
-### Setup the Raspberry Pi
+### Setup the Raspberry Pi :cd:
 
 * Sign up for or login to the [balenaCloud dashboard](https://dashboard.balena-cloud.com)
 * Create an application, selecting the correct device type for your Raspberry Pi
@@ -38,7 +38,7 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 * Flash the downloaded OS to your SD card with [balenaEtcher](https://balena.io/etcher)
 * Power up the Pi and check it's online in the dashboard
 
-### Deploy this application
+### Deploy this application :airplane:
 
 * Install the [balena CLI tools](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md)
 * Login with `balena login`
@@ -91,6 +91,10 @@ You can also add with the scp feature new servers. You want something different,
 * Pocketmine-MP (Vanilla Pocket Edition): https://pmmp.readthedocs.io/en/rtfd/installation.html
 * Bedrock from Microsoft (Vanilla Bedrock Edition): https://www.minecraft.net/de-de/download/server/bedrock/
 
-Not satisfied? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Spigot, which is very good.  
+Not satisfied:expressionless:? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Spigot, which is very good.  
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
+
+A balenaServer looks like this:eyeglasses::
+
+![Server Picture](images/minecraft-server.png)
