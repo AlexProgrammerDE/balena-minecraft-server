@@ -97,7 +97,7 @@ You can also add with the scp feature new servers. You want something different,
 * Pocketmine-MP (Vanilla Pocket Edition): https://pmmp.readthedocs.io/en/rtfd/installation.html
 * Bedrock from Microsoft (Vanilla Bedrock Edition): https://www.minecraft.net/de-de/download/server/bedrock/
 
-Not satisfied:expressionless:? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Spigot, which is very good.  
+Not satisfied:expressionless:? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Paper. It is a efficient and powerfull server. It is compatible with spigot and bukkit plugins.
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too.
 
