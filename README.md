@@ -109,7 +109,9 @@ You are maybe asking yourself how this works. Here is a little explanation:
 
 ![NO-IP Picture](images/NO-IP.png)
 
-You need first to create a [No-IP account](https://www.noip.com/sign-up). Then you need to create a hostname (It is no matter what.). Then you need to [Port Forward](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/) the Port `25565` on your Pi (UDP and TCP). After this you need to Log in to NO-IP in your Router (Somewhere at Dynamic DNS). At least you need to paste the internet adress your router is saying you(NOT something like 192.168.178.xx) in the NO-IP dashoard. Youre done. :+1:
+You need first to create a [No-IP account](https://www.noip.com/sign-up). Then you need to create a hostname (It is no matter what.). Then you need to [Port Forward](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/) the Port `25565` on your Pi (UDP and TCP). The device is what is in your UUID.After this you need to Log in to NO-IP in your Router (Somewhere at Dynamic DNS). At least you need to paste the internet adress your router is saying you(NOT something like 192.168.178.xx) in the NO-IP dashoard. Youre done. :+1:
+
+Here is also a link to a guide: https://www.noip.com/support/knowledgebase/getting-started-with-no-ip-com/ (Skip the DUC part please.)
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too. :octocat:
 
