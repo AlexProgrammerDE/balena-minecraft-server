@@ -77,6 +77,10 @@ You can connect to the server and change your serverfiles. I recommend using a T
 The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balenaserver`.
 The files are in the root directory folder `serverfiles`. 
 
+## Connect to another Wifi :satellite:
+
+balenaServer has wifi-connect integrated. You can use it for taking the Pi everywhere. If you want to read more is here the link to the programm: https://github.com/balena-io/wifi-connect (There is explained how it works.) 
+
 ## Update balenaServer :arrows_counterclockwise:
 
 You can simply update balenaServer with doing the `git clone` and `balena` steps again.
