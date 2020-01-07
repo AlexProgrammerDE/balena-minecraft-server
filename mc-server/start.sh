@@ -14,7 +14,7 @@ cp -R /serverfiles /usr/src/
 
 # Get the server jar file from AlexProgrammerDE
 cd /usr/src/serverfiles/
-wget -O paper.jar https://github.com/AlexProgrammerDE/balenaServer-files/raw/master/paper.jar
+wget -O paper.jar https://github.com/AlexProgrammerDE/balena-minecraft-server-files/raw/master/paper.jar
 
 # This saves that this is already done
 cd /servercache/
