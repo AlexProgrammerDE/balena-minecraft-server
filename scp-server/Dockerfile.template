@@ -1,6 +1,14 @@
+# This first line selects our base image. In this instance we use the dockerfile templates,
+# this means the appropriate image gets picked.
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y openssh-server
+# here we install apt dependencies. We also remove the apt lists in the same step,
+# this reduces the size of the docker image.
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+    openssh-server && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# here we set up the config for openSSH.
 RUN mkdir /var/run/sshd
 RUN echo 'root:balenaserver' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
