@@ -58,6 +58,8 @@ In my case is it `192.168.178.35`or `463e101`. You can connect to it like that:
 
 Now you are the one with a balenaServer :sunglasses::
 
+**NOTE:** This works only in the connected Wifi. If you want to play worldwide click here: https://github.com/AlexProgrammerDE/balena-server/blob/master/README.md#play-worldwide-optional-earth_americas
+
 ![Minecraft Screenshot](images/minecraft-screenshot.png)
 
 ## Connect to the terminal :satellite:
