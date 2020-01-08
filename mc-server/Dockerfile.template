@@ -4,10 +4,8 @@ ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 RUN install_packages openssh-server wget
 
-WORKDIR /
+COPY . /
 
-COPY . ./
-
-RUN chmod +x start.sh
+RUN chmod +x /start.sh
 
 CMD [ "/bin/bash", "start.sh" ]
