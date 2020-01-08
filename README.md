@@ -83,10 +83,6 @@ The files are in the root directory folder `serverfiles`.
 
 balenaServer has wifi-connect integrated. You can use it for taking the Pi everywhere. If you want to read more is here the link to the programm: https://github.com/balena-io/wifi-connect (There is explained how it works.) 
 
-## Update balenaServer :arrows_counterclockwise:
-
-You can simply update balenaServer with doing the `git clone` and `balena` steps again.
-
 ## Double RAM (optional) :link:
 
 Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM(at defaulf 1GB). If you set `DOUBLE_RAM` to `true` will be the double of RAM used.
