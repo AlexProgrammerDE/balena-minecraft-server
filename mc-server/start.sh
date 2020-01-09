@@ -40,11 +40,11 @@ while : ; do
 if [[ -z "$DOUBLE_RAM" ]]; then
 
 # Start any jar file with regular RAM
-java -Xms1G -Xmx1G -jar *.jar
+java -Xms1G -Xmx1G -jar *.jar || bash *.sh
 else
 
 # Start any jar file with double RAM
-java -Xms2G -Xmx2G -jar *.jar
+java -Xms2G -Xmx2G -jar *.jar || bash *.sh
 fi
 
 # Don´t overload the server if the start fails 
