@@ -89,6 +89,15 @@ balenaServer has wifi-connect integrated. You can use it for taking the Pi every
 
 Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM(at defaulf 1GB). If you set `DOUBLE_RAM` to `true` will be the double of RAM used.
 
+## Add plugins :wrench:
+
+balenaMinecraftServer also supports plugins. Just drop the in the plugins folder using [`SCP`](https://github.com/AlexProgrammerDE/balena-minecraft-server#connect-to-the-file-directory-satellite). The current Minecraft version is `1.15.1`. You can get your plugins from there(Other work too.): 
+
+* Spigot resources: https://www.spigotmc.org/resources/categories/spigot.4/
+* Bukkit: https://dev.bukkit.org/bukkit-plugins
+
+**NOTE:** Before adding the plugin and getting an error look if the plugin supports `1.15.1`.
+
 ## Custom Server (optional) :eyeglasses:
 
 You can also add with the scp feature new servers. You want something different, but don´t know where to start? Here are some servers listed:
