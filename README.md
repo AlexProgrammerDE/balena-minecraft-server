@@ -46,7 +46,7 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 
 ## Connect to the server :satellite:
 
-You can see in the Dashboard a IP-adress and a UUID. They the adress the from your server. One example:
+You can see in the Dashboard a IP-adress and a UUID. They are the adress the from your server. One example:
 
 ![IP-Adress](images/IP-Adress.png)
 
