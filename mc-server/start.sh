@@ -12,9 +12,9 @@ if [[ ! -a "copied.txt" ]]; then
 # Copy the serverfiles to the volume
 cp -R /serverfiles /usr/src/
 
-# Get the server jar file from AlexProgrammerDE
+# Get the server jar file from paper-mc
 cd /usr/src/serverfiles/
-wget -O paper.jar https://github.com/AlexProgrammerDE/balena-minecraft-server-files/raw/master/paper.jar
+wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
 
 # This saves that this is already done
 cd /servercache/
