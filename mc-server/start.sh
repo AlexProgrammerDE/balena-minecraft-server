@@ -27,7 +27,7 @@ cp -R /serverfiles /usr/src/
 
 # Get the server jar file from AlexProgrammerDE
 cd /usr/src/serverfiles/
-wget -O paper.jar https://github.com/AlexProgrammerDE/balenaServer-files/raw/master/paper.jar
+wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
 fi
 
 # Make sure you are in the file volume
