@@ -7,6 +7,10 @@ services:
     privileged: true
     labels:
       io.balena.features.dbus: 1
+      io.balena.features.supervisor-api: 1
+      io.balena.features.firmware: 1
+      io.balena.features.kernel-modules: 1
+      io.balena.features.balena-socket: 1
     volumes:
       - serverfiles:/usr/src/serverfiles
       - servercache:/servercache

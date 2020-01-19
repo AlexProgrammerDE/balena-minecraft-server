@@ -46,13 +46,9 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 
 ## Connect to the server :satellite:
 
-You can see in the Dashboard a IP-adress and a UUID. They are the adress the from your server. One example:
+Balena Minecraft Server sets automatic your Server hostname to `balenaminecraftserver`. It is the adress the from your server. You can connect to it like that:
 
-![IP-Adress](images/IP-Adress.png)
-
-In my case is it `192.168.178.35`or `463e101`. You can connect to it like that:
-
-**NOTE:** Please don´t use the copy option of the UUID. If i copy i get `463e101d32c154b6d68e8ddac6eca552`. Thats wrong. Copy the short part `463e101`.
+**Note:** The IP adress also works.
 
 ![Server-IP](images/Server-IP.png)
 
