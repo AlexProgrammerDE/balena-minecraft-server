@@ -91,7 +91,7 @@ Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB 
 
 ## Add plugins (optional) :wrench:
 
-balenaMinecraftServer also supports plugins. Just drop the in the plugins folder using [`SCP`](https://github.com/AlexProgrammerDE/balena-minecraft-server#connect-to-the-file-directory-satellite). The current Minecraft version is `1.15.1`. You can get your plugins from there(Other work too.): 
+balenaMinecraftServer also supports plugins. Just drop the in the plugins folder using [`SCP`](https://github.com/AlexProgrammerDE/balena-minecraft-server#connect-to-the-file-directory-satellite). The current Minecraft version is `1.15`. You can get your plugins from there(Other work too.): 
 
 * Spigot resources: https://www.spigotmc.org/resources/categories/spigot.4/
 * Bukkit: https://dev.bukkit.org/bukkit-plugins
