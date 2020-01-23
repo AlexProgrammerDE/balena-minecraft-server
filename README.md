@@ -1,11 +1,11 @@
 ![Balena Server Logo](images/logo.png)
 
 # A Minecraft server for the Raspberry Pi 4 [![CodeFactor](https://www.codefactor.io/repository/github/alexprogrammerde/balena-minecraft-server/badge/master)](https://www.codefactor.io/repository/github/alexprogrammerde/balena-minecraft-server/overview/master)
-**Starter project enabling you a Mineccaft Server using just a Raspberry Pi.**
+**Starter project enabling you a Minecraft Server using just a Raspberry Pi.**
 
 This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
 
-## Why balenaServer?
+## Why balenaMinecraftServer?
 
 * It works out of the box, just start it and it just works. :+1:
 * You can play anywhere. You can take the Pi to a friend, connect to his Wifi and enjoy playing. :video_game:
@@ -64,7 +64,7 @@ Now you are the one with a balenaServer :sunglasses::
 
 ## Connect to the terminal :satellite:
 
-The server has no console input option in the cloud dashboard, so you need `RCON`. The port is `25575` and the password is `balenaServer`. It is a protocol for connecting to the server.
+The server has no console input option in the cloud dashboard, so you need `RCON`. The port is `25575` and the password is `balenaserver`. It is a protocol for connecting to the server.
 There are many clients, but you can pick one here:
 
 * mcrcon: https://github.com/Tiiffi/mcrcon/releases
@@ -83,7 +83,7 @@ The files are in the root directory folder `serverfiles`.
 
 ## Connect to another Wifi :satellite:
 
-balenaServer has wifi-connect integrated. You can use it for taking the Pi everywhere. If you want to read more is here the link to the programm: https://github.com/balena-io/wifi-connect (There is explained how it works.) 
+balenaMinecraftServer has wifi-connect integrated. You can use it for taking the Pi everywhere. If you want to read more is here the link to the programm: https://github.com/balena-io/wifi-connect (There is explained how it works.) 
 
 ## Double RAM (optional) :link:
 
