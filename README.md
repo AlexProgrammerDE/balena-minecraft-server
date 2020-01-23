@@ -1,6 +1,6 @@
 ![Balena Server Logo](images/logo.png)
 
-# A Minecraft server for the Raspberry Pi 4 [![CodeFactor](https://www.codefactor.io/repository/github/alexprogrammerde/balena-minecraft-server/badge/master)](https://www.codefactor.io/repository/github/alexprogrammerde/balena-minecraft-server/overview/master)
+# A Minecraft server for the Raspberry Pi 4 [![CodeFactor](https://www.codefactor.io/repository/github/alexprogrammerde/balena-minecraft-server/badge/master)](https://www.codefactor.io/repository/github/alexprogrammerde/balena-minecraft-server/overview/master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dcfe6a9c0d49414cae7e9a9f7201001f)](https://www.codacy.com/manual/alex-05/balena-minecraft-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlexProgrammerDE/balena-minecraft-server&amp;utm_campaign=Badge_Grade)
 **Starter project enabling you a Minecraft Server using just a Raspberry Pi.**
 
 This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
