@@ -20,7 +20,7 @@ services:
     network_mode: host
     restart: always
     build: ./scp-server
-    privileged: true
+    privileged: false
     labels:
       io.balena.features.dbus: 1
     volumes:
