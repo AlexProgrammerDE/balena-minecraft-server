@@ -72,7 +72,7 @@ There are many clients, but you can pick one here:
 ## Connect to the file-directory :satellite:
 
 You can connect to the server and change your serverfiles. I recommend using a Tool like [WinSCP](https://winscp.net/).
-The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balenaserver`.
+The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balena`.
 The files are in the root directory folder `serverfiles`. 
 
 **NOTE:** You can also change your scp password by setting the `SCP_PASSWORD` enviroment variable.
