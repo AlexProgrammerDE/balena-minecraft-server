@@ -1,0 +1,22 @@
+name: check-versionist
+
+on: pull_request
+jobs:
+  versionist:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install resin-commit-lint and download config
+      run: |
+        sudo npm install -g resin-commit-linter
+        DIRECTORY=$(pwd)
+        cd ..
+        wget https://raw.githubusercontent.com/AlexProgrammerDE/balena-github-actions/master/config.json
+        cd $DIRECTORY
+    - name: Start resin-commit-lint
+      run: |
+        commit=$(git show $(git rev-parse --verify HEAD~1) -s --format=%B)
+        echo "${commit}"
+        resin-commit-lint "${commit}" -c ../config.json

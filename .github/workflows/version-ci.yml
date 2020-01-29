@@ -1,0 +1,38 @@
+name: Version CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  version-ci:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install balena-versionist
+      run: |
+        sudo npm install -g versionist
+        sudo npm install -g balena-versionist
+    - name: Run balena-versionist
+      run: balena-versionist
+    - name: Commit files
+      run: |
+        VERSION=$(<VERSION)
+        git add .
+        git config --local user.email "$github_email"
+        git config --local user.name "$github_username"
+        sudo git commit -m "v$VERSION" -m "Change-type: patch" -a
+      env:
+        github_email: ${{ secrets.GITHUB_EMAIL }}
+        github_username: ${{ secrets.GITHUB_USERNAME }}
+    - name: Create tag
+      run: |
+        VERSION=$(<VERSION)
+        git tag v$VERSION
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
