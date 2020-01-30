@@ -67,7 +67,7 @@ There are many clients, but you can pick one here:
 
 **NOTE:** You will need for starting this script this batchfile if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat
 
-* Minecraft Server RCON: https://mega.nz/#!SgAAyaxJ!6LQb3HMmms8QjslHH31_4SXdmIjWR-6G6H2aU_KanBY
+* Minecraft Server RCON: https://alexprogrammerde.github.io/Minecraft-Server-RCON.rar
 
 ## Connect to the file-directory :satellite:
 
@@ -81,9 +81,14 @@ The files are in the root directory folder `serverfiles`.
 
 balenaMinecraftServer has wifi-connect integrated. You can use it for taking the Pi everywhere. If you want to read more is here the link to the programm: https://github.com/balena-io/wifi-connect (There is explained how it works.) 
 
+## Change hostname
+You can change the hostname by defining the DEVICE_HOSTNAME Environment Variable within balenaCloud.
+
+**NOTE:** If you decide to change the hostname, you will have to use your new hostname within Minecraft to connect to the server, instead of `balenaminecraftserver`.
+
 ## Double RAM (optional) :link:
 
-Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM(at defaulf 1GB). If you set `DOUBLE_RAM` to `true` will be the double of RAM used.
+Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM (the default value used by a Minecraft server is 1GB). If you set `DOUBLE_RAM` to `true` it will double the amount of RAM used by the server.
 
 ## Add plugins (optional) :wrench:
 
@@ -96,7 +101,7 @@ balenaMinecraftServer also supports plugins. Just drop the in the plugins folder
 
 ## Custom Server (optional) :eyeglasses:
 
-You can also add with the scp feature new servers. You want something different, but don´t know where to start? Here are some servers listed:
+If you want to customize your server even further, but don't know where to start, take a look at some of the servers listed here for ideas:
 
 * Spigot (Vanilla Java Edition): https://getbukkit.org/download/spigot
 * Craftbuckit (Vanilla Java Edition): https://getbukkit.org/download/craftbukkit
@@ -106,11 +111,13 @@ You can also add with the scp feature new servers. You want something different,
 * Pocketmine-MP (Vanilla Pocket Edition): https://pmmp.readthedocs.io/en/rtfd/installation.html
 * Bedrock from Microsoft (Vanilla Bedrock Edition): https://www.minecraft.net/de-de/download/server/bedrock/
 
-Not satisfied:expressionless:? There are many tutorials, just google it. If you need help can you ask in an issue, but first google it. balenaServer uses Paper. It is a efficient and powerfull server. It is compatible with spigot and bukkit plugins.
+Note: Balena Minecraft Server uses Paper. It is an efficient and powerful server. It is compatible with spigot and bukkit plugins.
+
+I encourage you to take your server build even further! There are many tutorials out there on server customization-- this article only touches on a few ideas. If you need help, please reach out by submitting an [issue on GitHub](https://github.com/AlexProgrammerDE/balena-minecraft-server/issues).
 
 ## Play worldwide (optional) :earth_americas:
 
-You are maybe asking yourself how this works. Here is a little explanation:
+Once you’ve perfected the setup of your server on your local network, you might be interested in unveiling your server to the rest of the world! Here’s how you can enable remote access and allow players to connect via the Internet.
 
 ![NO-IP Picture](images/NO-IP.png)
 
