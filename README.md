@@ -3,7 +3,7 @@
 # A Minecraft server for the Raspberry Pi 4
 **Starter project enabling you a Minecraft Server using just a Raspberry Pi.**
 
-This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
+This project has been tested on and Raspberry Pi 4 B 4GB. I do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
 
 ## Why balenaMinecraftServer?
 
@@ -15,9 +15,9 @@ This project has been tested on and Raspberry Pi 4 B 4GB. We do not recommend us
 
 ## Hardware required
 
-* Raspberry Pi 4B (The best is 4GB. 1GB is not enough.) :tada:
-* Micro SD Card (we recommend 8GB Sandisk Extreme Pro) :floppy_disk:
-* Power supply :electric_plug:
+* Raspberry Pi 4B ( We recommend the 4GB model. 1GB is not enough! )
+* A 16GB or greater micro SD Card (we always recommend SanDisk Extreme Pro SD cards)
+* Power supply
 
 ## Software required
 
@@ -63,19 +63,15 @@ Now you are the one with a balenaServer :sunglasses::
 The server has no console input option in the cloud dashboard, so you need `RCON`. The port is `25575` and the password is `balenaserver`. It is a protocol for connecting to the server.
 There are many clients, but you can pick one here:
 
-* mcrcon: https://github.com/Tiiffi/mcrcon/releases
-
-**NOTE:** You will need for starting this script this batchfile if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat
+* mcrcon: https://github.com/Tiiffi/mcrcon/releases (NOTE: You will need for starting this script this batch file if you are using windows (Just paste it in the unzipped directory.): https://github.com/AlexProgrammerDE/RCON-Script/blob/master/launch.bat)
 
 * Minecraft Server RCON: https://alexprogrammerde.github.io/Minecraft-Server-RCON.rar
 
 ## Connect to the file-directory :satellite:
 
-You can connect to the server and change your serverfiles. I recommend using a Tool like [WinSCP](https://winscp.net/).
-The IP is the one above, the protocoll `SCP`, the port `22`, the username `root` and the password is `balena`.
-The files are in the root directory folder `serverfiles`. 
+You can connect to the server and change your serverfiles. I recommend using a tool like [WinSCP](https://winscp.net/) or if you are using OSX or a linux distribution you can use [Filezilla](https://filezilla-project.org/).  The IP Address to connect to is “balenaminecraftserver” (without the quotes), the protocol to choose is SCP (If you got the choice), the port number is 22, the username is “root” (again, without the quotes) and the password is “balenaserver” (no quotes). The files are in the folder named “serverfiles” at the root directory, you can double click to open that directory and browse the files in there.
 
-**NOTE:** You can also change your scp password by setting the `SCP_PASSWORD` enviroment variable.
+**NOTE:** You can also change your SCP password by setting the `SCP_PASSWORD` Environment Variable within balenaCloud.  On the left, simply click on “Device Variables” and then click the “Add Variable” button. Give it a name of `SCP_PASSWORD`, and set the value to your password. 
 
 ## Connect to another Wifi :satellite:
 
