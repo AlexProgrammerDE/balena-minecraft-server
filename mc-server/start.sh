@@ -25,7 +25,7 @@ cp -R /serverfiles /usr/src/
 # Get the server jar file from paper-mc
 cd /usr/src/serverfiles/
 
-if [[ -z "$(*.jar)" ]]; then
+if [[ -z "$(ls *.jar)" ]]; then
   printf "%s\n" "Downloading the server file from paper-mc."
   wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
 else
