@@ -24,9 +24,11 @@ cp -R /serverfiles /usr/src/
 
 # Get the server jar file from paper-mc
 cd /usr/src/serverfiles/
-wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
+if [[ ! -a "*.jar" ]]; then
+  wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
+fi
 
-# This saves that this is already done
+# This saves that this is done
 cd /servercache/
 touch copied.txt
 fi
@@ -35,7 +37,7 @@ else
 # Copy the serverfiles to the volume
 cp -R /serverfiles /usr/src/
 
-# Get the server jar file from AlexProgrammerDE
+# Get the server jar file from paper-mc
 cd /usr/src/serverfiles/
 wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
 fi
