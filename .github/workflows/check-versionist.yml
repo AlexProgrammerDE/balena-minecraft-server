@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
     - name: Install resin-commit-lint and download config
       run: |
         sudo npm install -g resin-commit-linter
@@ -17,6 +19,6 @@ jobs:
         cd $DIRECTORY
     - name: Start resin-commit-lint
       run: |
-        commit=$(git show $(git rev-parse --verify HEAD~1) -s --format=%B)
+        commit=$(git show $(git rev-parse --verify HEAD) -s --format=%B)
         echo "${commit}"
         resin-commit-lint "${commit}" -c ../config.json
