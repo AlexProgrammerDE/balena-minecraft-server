@@ -10,14 +10,14 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - name: Install resin-commit-lint and download config
+    - name: Install balena-commit-linter and download config
       run: |
         sudo npm install -g resin-commit-linter
         DIRECTORY=$(pwd)
         cd ..
         wget https://raw.githubusercontent.com/AlexProgrammerDE/balena-github-actions/master/config.json
         cd $DIRECTORY
-    - name: Start resin-commit-lint
+    - name: Start balena-commit-lint
       run: |
         commit=$(git show $(git rev-parse --verify HEAD) -s --format=%B)
         echo "${commit}"
