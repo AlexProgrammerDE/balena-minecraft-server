@@ -4,7 +4,7 @@ ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 RUN install_packages wget
 
-COPY serverfiles /
+COPY . /
 
 COPY start.sh /usr/src/
 
