@@ -11,7 +11,7 @@ curl -X PATCH --header "Content-Type:application/json" \
     "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY"
 
 # This var is for dev reasons
-if [[ -z "$CACHE_IGNORE" ]]; then
+if [[ -z "$ENABLE_UPDATE" ]]; then
 
 # Go to the cache volume
 cd /servercache/
@@ -24,9 +24,15 @@ cp -R /serverfiles /usr/src/
 
 # Get the server jar file from paper-mc
 cd /usr/src/serverfiles/
-wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
 
-# This saves that this is already done
+if [[ -z "$(ls *.jar)" ]]; then
+  printf "%s\n" "Downloading the server file from paper-mc."
+  wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
+else
+  printf "%s\n" "There is already an server file. It´s called: $(ls *.jar)"
+fi
+
+# This saves that this is done
 cd /servercache/
 touch copied.txt
 fi
@@ -35,7 +41,8 @@ else
 # Copy the serverfiles to the volume
 cp -R /serverfiles /usr/src/
 
-# Get the server jar file from AlexProgrammerDE
+# Get the server jar file from paper-mc
+printf "%s\n" "Downloading the server file from paper-mc."
 cd /usr/src/serverfiles/
 wget -O paper.jar https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
 fi
@@ -49,12 +56,12 @@ while : ; do
 # Add double RAM
 if [[ -z "$DOUBLE_RAM" ]]; then
 
-# Start any jar file with regular RAM
-java -Xms1G -Xmx1G -jar *.jar || bash *.sh
+printf "%s\n" "Starting jar file with 1GB of RAM."
+java -Xms1G -Xmx1G -jar *.jar
 else
 
-# Start any jar file with double RAM
-java -Xms2G -Xmx2G -jar *.jar || bash *.sh
+printf "%s\n" "Starting jar file with 2GB of RAM."
+java -Xms2G -Xmx2G -jar *.jar
 fi
 
 # Don´t overload the server if the start fails 
