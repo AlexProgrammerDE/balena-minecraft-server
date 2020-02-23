@@ -95,6 +95,22 @@ balenaMinecraftServer also supports plugins. Just drop the in the plugins folder
 
 **NOTE:** Before adding the plugin and getting an error look if the plugin supports `1.15`.
 
+## Play worldwide (optional) :earth_americas:
+
+Once you’ve perfected the setup of your server on your local network, you might be interested in unveiling your server to the rest of the world! Here’s how you can enable remote access and allow players to connect via the Internet.
+
+![NO-IP Picture](images/NO-IP.png)
+
+If you’d like to allow friends outside of your local network to join your server, you’ll need to set up dynamic DNS (DDNS) to expose your Pi to the outside world. This example uses a service called No-IP, which has a free tier for people who want to try DDNS out, though other options and methods do exist as well. In the case of this example, you will need to: 
+
+* Create an account with [No-IP](https://www.noip.com/sign-up) by visiting their website.
+* After creating the account and logging in, create a Hostname (example: balena.serverminecraft.net) by [following their documentation](https://www.noip.com/support/knowledgebase/getting-started-with-no-ip-com/).
+* Set up Port Forwarding: You will need to route your Minecraft traffic to port 25565 on your Pi. To do this, you will log in to your home router and setup Port Forwarding. This step varies by particular brand of modem or router, but the No-IP documentation does a good job of describing the process [here](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/). You may need to follow instructions specific to your modem or router if the No-IP documentation does not contain your particular type.
+* Optional: You can login to No-IP with your router to keep the IP Address current in case it changes. That allows the router to connect automatically to No-IP. Here is a [guide by No-IP](https://www.noip.com/support/knowledgebase/how-to-configure-ddns-in-router/) on how to accomplish this.
+* Paste your public / external internet address in the box labeled IP Address into the No-IP dashboard. You're done. 👍
+
+For a deeper look at setting up remote access, please [reference this guide](https://www.noip.com/support/knowledgebase/getting-started-with-no-ip-com/) (Note: You can skip the DUC part).
+
 ## Custom Server (optional) :eyeglasses:
 
 If you want to customize your server even further, but don't know where to start, take a look at some of the servers listed here for ideas:
@@ -104,22 +120,11 @@ If you want to customize your server even further, but don't know where to start
 * Vanilla from Minecraft (Vanilla Java Edition): https://getbukkit.org/download/vanilla
 * Paper (Vanilla Java Edition): https://papermc.io/downloads
 * Forge (Modded Java Edition): http://files.minecraftforge.net/
-* Pocketmine-MP (Vanilla Pocket Edition): https://pmmp.readthedocs.io/en/rtfd/installation.html
 * Bedrock from Microsoft (Vanilla Bedrock Edition): https://www.minecraft.net/de-de/download/server/bedrock/
 
 Note: Balena Minecraft Server uses Paper. It is an efficient and powerful server. It is compatible with spigot and bukkit plugins.
 
 I encourage you to take your server build even further! There are many tutorials out there on server customization-- this article only touches on a few ideas. If you need help, please reach out by submitting an [issue on GitHub](https://github.com/AlexProgrammerDE/balena-minecraft-server/issues).
-
-## Play worldwide (optional) :earth_americas:
-
-Once you’ve perfected the setup of your server on your local network, you might be interested in unveiling your server to the rest of the world! Here’s how you can enable remote access and allow players to connect via the Internet.
-
-![NO-IP Picture](images/NO-IP.png)
-
-You need first to create a [No-IP account](https://www.noip.com/sign-up). Then you need to create a hostname (It is no matter what.). Then you need to [Port Forward](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/) the Port `25565` on your Pi (UDP and TCP). The devicename is what is in your UUID field. After this you need to Log in to NO-IP in your Router (Somewhere at Dynamic DNS). At least you need to paste the internet adress your router is saying you(NOT something like 192.168.178.xx) in the NO-IP dashoard. Youre done. :+1:
-
-Here is also a link to a guide: https://www.noip.com/support/knowledgebase/getting-started-with-no-ip-com/ (Skip the DUC part please. You need to write in the dashboard the Internet IP your router is giving you.)
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too. :octocat:
 
