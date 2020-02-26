@@ -16,6 +16,7 @@ This project has been tested on and Raspberry Pi 4 B 4GB. I do not recommend usi
 ## Hardware required
 
 * Raspberry Pi 4B ( We recommend the 4GB model. 1GB is not enough! )
+* A fan or cooling system to prevent lag caused by throttling
 * A 16GB or greater micro SD Card (we always recommend SanDisk Extreme Pro SD cards)
 * Power supply
 
