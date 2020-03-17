@@ -40,8 +40,10 @@ touch copied.txt
 fi
 else
 
-# Copy the serverfiles to the volume
-cp -R /serverfiles /usr/src/
+if [[ ! -z "$ENABLE_CONFIG_UPDATE" ]]; then
+  # Copy the serverfiles to the volume
+  cp -R /serverfiles /usr/src/
+fi
 
 # Get the server jar file from paper-mc
 printf "%s\n" "Downloading the server file from paper-mc."
