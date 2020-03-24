@@ -45,6 +45,11 @@ services:
     ports:
       - "25575:25575/udp"
       - "25575:25575/tcp"
+  supervisor:
+    network_mode: host
+    restart: always
+    build: ./supervisor
+    privileged: true
 volumes:
   serverfiles:
   servercache:
