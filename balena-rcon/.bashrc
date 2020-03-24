@@ -1,1 +1,1 @@
-source /usr/src/balenamcrcon.sh
+source /usr/src/balena-rcon.sh
