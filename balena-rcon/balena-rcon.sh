@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-balenamcrcon () {
+balena-rcon () {
   mcrcon -t -H localhost -P 25575 -p balena
 }
