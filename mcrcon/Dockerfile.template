@@ -10,6 +10,8 @@ RUN cd /usr/src/ \
 
 COPY . /usr/src/
 
+RUN source /usr/src/start.sh
+
 RUN chmod +x /usr/src/start.sh
 
 CMD [ "/bin/bash", "/usr/src/start.sh" ]
