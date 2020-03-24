@@ -1,6 +1,6 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:latest-buster
 
-RUN install_packages make git 
+RUN install_packages make git gcc build-essential
 
 RUN cd /usr/src/ \
     && git clone https://github.com/Tiiffi/mcrcon.git \
