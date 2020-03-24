@@ -1,1 +1,1 @@
-source /usr/src/balena-rcon.sh
+mcrcon -t -H localhost -P 25575 -p balena
