@@ -40,7 +40,7 @@ services:
   mcrcon:
     network_mode: host
     restart: always
-    build: ./mc-server
+    build: ./mcrcon
     privileged: true
     ports:
       - "25575:25575/udp"
