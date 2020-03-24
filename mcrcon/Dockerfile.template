@@ -10,7 +10,7 @@ RUN cd /usr/src/ \
 
 COPY . /usr/src/
 
-RUN source /usr/src/start.sh
+COPY .bashrc /root/
 
 RUN chmod +x /usr/src/start.sh
 
