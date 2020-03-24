@@ -37,10 +37,10 @@ services:
     labels:
       io.balena.features.dbus: '1'
       io.balena.features.firmware: '1'
-  mcrcon:
+  balena-rcon:
     network_mode: host
     restart: always
-    build: ./mcrcon
+    build: ./balena-rcon
     privileged: true
     ports:
       - "25575:25575/udp"
