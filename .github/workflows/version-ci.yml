@@ -18,6 +18,8 @@ jobs:
         sudo npm install -g balena-versionist
     - name: Run balena-versionist
       run: balena-versionist
+    - name: Copy Version to supervisor
+      run: cp VERSION ./supervisor/VERSION
     - name: Commit files
       run: |
         VERSION=$(<VERSION)
