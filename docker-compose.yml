@@ -37,6 +37,14 @@ services:
     labels:
       io.balena.features.dbus: '1'
       io.balena.features.firmware: '1'
+  mcrcon:
+    network_mode: host
+    restart: always
+    build: ./mc-server
+    privileged: true
+    ports:
+      - "25575:25575/udp"
+      - "25575:25575/tcp"
 volumes:
   serverfiles:
   servercache:
