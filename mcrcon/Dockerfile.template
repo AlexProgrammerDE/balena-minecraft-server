@@ -1,1 +1,15 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:latest-buster
 
+RUN install_packages make git 
+
+RUN cd /usr/src/ \
+    && git clone https://github.com/Tiiffi/mcrcon.git \
+    && cd mcrcon \
+    && make \
+    && make install
+
+COPY . /usr/src/
+
+RUN chmod +x /usr/src/start.sh
+
+CMD [ "/bin/bash", "/usr/src/start.sh" ]
