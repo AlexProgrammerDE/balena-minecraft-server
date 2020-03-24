@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /usr/src/balenamcrcon.sh
+export PATH="/usr/src/balenamcrcon/:$PATH"
 
 while : ; do
   sleep 10
