@@ -4,13 +4,17 @@ if [[ -z "$DEVICE_HOSTNAME" ]]; then
   DEVICE_HOSTNAME=balenaminecraftserver
 fi
 
+if [[ -z "$JAR_FILE" ]]; then
+  JAR_FILE="paper.jar"
+fi
+
 printf "%s\n" "Setting device hostname to: $DEVICE_HOSTNAME"
 
 curl -X PATCH --header "Content-Type:application/json" \
     --data '{"network": {"hostname": "'"${DEVICE_HOSTNAME}"'"}}' \
     "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY"
 
-# This var is for dev reasons
+# This var enables auto update of the paper.jar file
 if [[ -z "$ENABLE_UPDATE" ]]; then
 
 # Go to the cache volume
@@ -63,11 +67,11 @@ while : ; do
 if [[ -z "$DOUBLE_RAM" ]]; then
 
 printf "%s\n" "Starting jar file with 1GB of RAM."
-java -Xms1G -Xmx1G -jar *.jar
+java -Xms1G -Xmx1G -jar $JAR_FILE
 else
 
 printf "%s\n" "Starting jar file with 2GB of RAM."
-java -Xms2G -Xmx2G -jar *.jar
+java -Xms2G -Xmx2G -jar $JAR_FILE
 fi
 
 # Don´t overload the server if the start fails 
