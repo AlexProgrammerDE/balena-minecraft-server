@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-export PATH="/usr/src/balenamcrcon/:$PATH"
+balenamcrcon () {
+  mcrcon -t -H localhost -P 25575 -p balena
+}
 
 while : ; do
   sleep 10
