@@ -5,6 +5,8 @@ services:
     restart: always
     build: ./mc-server
     privileged: true
+    depends_on:
+      - supervisor
     labels:
       io.balena.features.dbus: 1
       io.balena.features.supervisor-api: 1
@@ -21,6 +23,8 @@ services:
     restart: always
     build: ./scp-server
     privileged: false
+    depends_on:
+      - mc-server
     labels:
       io.balena.features.dbus: 1
     volumes:
@@ -42,6 +46,8 @@ services:
     restart: always
     build: ./balena-rcon
     privileged: true
+    depends_on:
+      - mc-server
     ports:
       - "25575:25575/udp"
       - "25575:25575/tcp"
