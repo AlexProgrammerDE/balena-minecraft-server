@@ -8,7 +8,7 @@ RUN cd /usr/src/ \
     && make \
     && make install
 
-COPY . /usr/src/
+COPY start.sh /usr/src/
 
 COPY .bashrc /root/
 
