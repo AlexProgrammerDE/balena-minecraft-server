@@ -1,5 +1,8 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:latest-buster
 
+# \/ If you want to use java 8 delete the # in front of the line below and add a # in front of the first line \/
+# FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:8-jdk-stretch
+
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 RUN install_packages wget
