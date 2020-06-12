@@ -3,7 +3,7 @@
 # A Minecraft server for the Raspberry Pi 4
 **Starter project enabling you a Minecraft Server using just a Raspberry Pi.**
 
-This project has been tested on and Raspberry Pi 4 B 4GB. I do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
+This project has been tested on a Raspberry Pi 4 B 4GB. I do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
 
 ## Why balenaMinecraftServer?
 
@@ -15,7 +15,7 @@ This project has been tested on and Raspberry Pi 4 B 4GB. I do not recommend usi
 
 ## Hardware required
 
-* Raspberry Pi 4B ( We recommend the 4GB model. 1GB is not enough! )
+* Raspberry Pi 4B ( We recommend the 4GB or the 8GB model. 1GB is not enough! )
 * A fan or cooling system to prevent lag caused by throttling
 * A 16GB or greater micro SD Card (we always recommend SanDisk Extreme Pro SD cards)
 * Power supply
@@ -83,9 +83,9 @@ You can change the hostname by defining the DEVICE_HOSTNAME Environment Variable
 
 **NOTE:** If you decide to change the hostname, you will have to use your new hostname within Minecraft to connect to the server, instead of `balenaminecraftserver`.
 
-## Double RAM (optional) :link:
+## Custom RAM (optional) :link:
 
-Devices like the Raspberry Pi 4B 4GB have enough RAM to run the server with 2GB RAM (the default value used by a Minecraft server is 1GB). If you set `DOUBLE_RAM` to `true` it will double the amount of RAM used by the server.
+Devices like the Raspberry Pi 4B 4GB or the 8GB model have enough RAM to run the server with more RAM (the default value used by balena Minecraft server is 1GB). If you set `RAM` to a value like `2G`, `4G`, or `6G` it will have the specified amount of RAM available.
 
 ## Add plugins (optional) :wrench:
 
