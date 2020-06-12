@@ -8,6 +8,10 @@ if [[ -z "$JAR_FILE" ]]; then
   JAR_FILE="paper.jar"
 fi
 
+if [[ -z "$RAM" ]]; then
+  RAM="1G"
+fi
+
 printf "%s\n" "Setting device hostname to: $DEVICE_HOSTNAME"
 
 curl -X PATCH --header "Content-Type:application/json" \
