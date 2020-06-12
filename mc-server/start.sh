@@ -67,10 +67,8 @@ cd /usr/src/serverfiles/
 # Do that forever
 while : ; do
 
-printf "%s\n" "Starting jar file with: " $RAM " of RAM"
+printf "%s\n" "Starting jar file with: $RAM of RAM"
 java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
-
-fi
 
 # Don´t overload the server if the start fails 
 sleep 10
