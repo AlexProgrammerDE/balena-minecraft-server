@@ -63,15 +63,9 @@ cd /usr/src/serverfiles/
 # Do that forever
 while : ; do
 
-# Add double RAM
-if [[ -z "$DOUBLE_RAM" ]]; then
+printf "%s\n" "Starting jar file with: " $RAM "of RAM"
+java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
 
-printf "%s\n" "Starting jar file with 1GB of RAM."
-java -Xms1G -Xmx1G -jar $JAR_FILE
-else
-
-printf "%s\n" "Starting jar file with 2GB of RAM."
-java -Xms2G -Xmx2G -jar $JAR_FILE
 fi
 
 # Don´t overload the server if the start fails 
