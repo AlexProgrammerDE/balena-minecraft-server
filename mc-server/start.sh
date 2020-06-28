@@ -36,7 +36,7 @@ cd /usr/src/serverfiles/
 if [[ -z "$(ls *.jar)" ]]; then
   printf "%s\n" "Downloading the server file from paper-mc."
   while : ; do 
-    wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar && break
+    wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.16/lastSuccessfulBuild/artifact/paperclip.jar && break
   done
 else
   printf "%s\n" "There is already an server file. It´s called: $(ls *.jar)"
@@ -57,7 +57,7 @@ fi
 printf "%s\n" "Downloading the server file from paper-mc."
 cd /usr/src/serverfiles/
 while : ; do 
-  wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar && break
+  wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.16/lastSuccessfulBuild/artifact/paperclip.jar && break
 done
 fi
 
