@@ -42,6 +42,7 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 ### One Click Deployment
 
 You can deploy this server with one click with the button below. Or, you can follow the manual deployment instructions in the next section.
+
 [![](https://balena.io/deploy.png)](https://github.com/AlexProgrammerDE/balena-minecraft-server)
 
 ### Manually Deploy this application :airplane:
