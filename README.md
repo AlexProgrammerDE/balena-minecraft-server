@@ -10,14 +10,14 @@ This project has been tested on a Raspberry Pi 4 B 4GB. I do not recommend using
 * It works out of the box, just start it and it just works. :+1:
 * You can play anywhere. You can take the Pi to a friend, connect to his Wifi and enjoy playing. :video_game:
 * It is free. No costs, no big server and no complication. :free:
-* Why hosting on a computer? A Pi is power efficient! :rocket:
+* Why host on a computer? A Pi is power efficient! :rocket:
 * You can easy maintain the files on the Pi by using your PC. :computer:
 
 ## Hardware required
 
-* Raspberry Pi 4B ( We recommend the 4GB or the 8GB model. 1GB is not enough! )
+* Raspberry Pi 4B (We recommend the 4GB or the 8GB model. 1GB is not enough! )
 * A fan or cooling system to prevent lag caused by throttling
-* A 16GB or greater micro SD Card (we always recommend SanDisk Extreme Pro SD cards)
+* A 16GB or greater micro SD Card (We always recommend SanDisk Extreme Pro SD cards)
 * Power supply
 
 ## Software required
@@ -39,7 +39,13 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 * Flash the downloaded OS to your SD card with [balenaEtcher](https://balena.io/etcher)
 * Power up the Pi and check it's online in the dashboard
 
-### Deploy this application :airplane:
+### One Click Deployment
+
+You can deploy this server with one click with the button below. Or, you can follow the manual deployment instructions in the next section.
+
+[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/AlexProgrammerDE/balena-minecraft-server)
+
+### Manually Deploy this application :airplane:
 
 * Install the [balena CLI tools](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md)
 * Login with `balena login`
@@ -47,13 +53,13 @@ To run this project is as simple as deploying it to a balenaCloud application; n
 
 ## Connect to the server :satellite:
 
-Balena Minecraft Server sets automatic your Server hostname to `balenaminecraftserver`. It is the adress the from your server. You can connect to it like that:
+Balena Minecraft Server sets automatically your Server hostname to `balenaminecraftserver`. It is the address the from your server. You can connect to it like that:
 
-**Note:** The IP adress also works.
+**Note:** The IP address also works.
 
 ![Server-IP](images/Server-IP.png)
 
-Now you are the one with a balenaServer :sunglasses::
+Now you have a balenaServer :sunglasses::
 
 **NOTE:** This works only in the connected Wifi. If you want to play worldwide click here: https://github.com/AlexProgrammerDE/balena-server/blob/master/README.md#play-worldwide-optional-earth_americas
 
