@@ -11,6 +11,6 @@ assets:
 data:
   description: "Build a Minecraft Server using a Raspberry Pi 4! Supports common Servers, SCP, RCON and Wifi Connect."
   applicationEnvironmentVariables:
-  defaultDeviceType: "raspberry-pi-64"
+  defaultDeviceType: "raspberrypi4-64"
   supportedDeviceTypes:
     - "raspberrypi4-64"
