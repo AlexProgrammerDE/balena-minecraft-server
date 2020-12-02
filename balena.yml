@@ -1,7 +1,7 @@
 
 version: "2"
 slug: "balena-minecraft-server"
-name: "balena Minecraft Server"
+name: "Minecraft Server"
 type: "sw.application"
 assets:
   - url: "https://github.com/AlexProgrammerDE/balena-minecraft-server"
