@@ -127,6 +127,7 @@ If you want to customize your server even further, but don't know where to start
 * Vanilla from Minecraft (Vanilla Java Edition): https://getbukkit.org/download/vanilla
 * Paper (Vanilla Java Edition): https://papermc.io/downloads
 * Forge (Modded Java Edition): http://files.minecraftforge.net/
+* ccSpigot (Vanilla Java Edition, Fork and continuation of Paper 1.12.2): https://github.com/moom0o/ccSpigot
 
 Note: Balena Minecraft Server uses Paper. It is an efficient and powerful server. It is compatible with spigot and bukkit plugins.
 
