@@ -123,7 +123,7 @@ For a deeper look at setting up remote access, please [reference this guide](htt
 If you want to customize your server even further, but don't know where to start, take a look at some of the servers listed here for ideas:
 
 * Spigot (Vanilla Java Edition): https://getbukkit.org/download/spigot
-* Craftbuckit (Vanilla Java Edition): https://getbukkit.org/download/craftbukkit
+* Purpur (Vanilla Java Edition, very well optimized for 1.16.3) https://purpur.pl3x.net/
 * Vanilla from Minecraft (Vanilla Java Edition): https://getbukkit.org/download/vanilla
 * Paper (Vanilla Java Edition): https://papermc.io/downloads
 * Forge (Modded Java Edition): http://files.minecraftforge.net/
