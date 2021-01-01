@@ -9,8 +9,8 @@ get_latest_server() {
 
   printf "%s\n" "Downloading $MC_VERSION build $LATEST_BUILD..."
 
-  wget --quiet -O paper.jar -T 60 $SERVER_JAR_URL
   echo "$SERVER_JAR_SHA256 paper.jar" > papersha256.txt
+  wget --quiet -O paper.jar -T 60 $SERVER_JAR_URL
 }
 
 # Wait for working internet access here
@@ -63,7 +63,7 @@ if [[ -z "$ENABLE_UPDATE" ]]; then
   fi
 
   # We have a paper.jar, is it valid?
-  if [[ $(sha256sum -c papersha256.txt --status 2>/dev/null) -eq 1 ]]; then
+  if [[ $(sha256sum -c papersha256.txt --status 2>/dev/null) -eq 1 || ! -e "papersha256.txt" ]]; then
     printf "%s\n" "Server JAR not valid."
     get_latest_server
   else
