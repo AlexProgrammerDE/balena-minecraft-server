@@ -53,7 +53,7 @@ You can deploy this server with one click with the button below. Or, you can fol
 
 ## Connect to the server :satellite:
 
-Balena Minecraft Server sets automatically your Server hostname to `balenaminecraftserver`. It is the address the from your server. You can connect to it like that:
+Balena Minecraft Server sets automatically your Server hostname to `balenaminecraftserver.local`. It is the address the from your server. You can connect to it like this:
 
 **Note:** The IP address also works.
 
@@ -87,7 +87,7 @@ balenaMinecraftServer has wifi-connect integrated. You can use it for taking the
 ## Change hostname
 You can change the hostname by defining the DEVICE_HOSTNAME Environment Variable within balenaCloud.
 
-**NOTE:** If you decide to change the hostname, you will have to use your new hostname within Minecraft to connect to the server, instead of `balenaminecraftserver`.
+**NOTE:** If you decide to change the hostname, you will have to use your new hostname within Minecraft to connect to the server, instead of `balenaminecraftserver.local`.
 
 ## Custom RAM (optional) :link:
 
