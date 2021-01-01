@@ -1,9 +1,9 @@
 ![Balena Server Logo](images/logo.png)
 
-# A Minecraft server for the Raspberry Pi 4
-**Starter project enabling you a Minecraft Server using just a Raspberry Pi.**
+# Minecraft Server
+**Starter project enabling you a Minecraft Server using just a Raspberry Pi 4 or Jetson Nano.**
 
-This project has been tested on a Raspberry Pi 4 B 4GB. I do not recommend using a Raspberry Pi 3 or deeper. They have not enough RAM and power to calculate all the things. :boom:
+This project has been tested on a Raspberry Pi 4 B 4GB & Nvidia Jetson Nano. I do not recommend using a Raspberry Pi 3 or older. They have not enough RAM and power to calculate all the things. :boom:
 
 ## Why balenaMinecraftServer?
 
@@ -15,7 +15,7 @@ This project has been tested on a Raspberry Pi 4 B 4GB. I do not recommend using
 
 ## Hardware required
 
-* Raspberry Pi 4B (We recommend the 4GB or the 8GB model. 1GB is not enough! )
+* Raspberry Pi 4B (We recommend the 4GB or the 8GB model. 1GB is not enough!) or Nvidia Jetson Nano
 * A fan or cooling system to prevent lag caused by throttling
 * A 16GB or greater micro SD Card (We always recommend SanDisk Extreme Pro SD cards)
 * Power supply
@@ -31,13 +31,13 @@ This project has been tested on a Raspberry Pi 4 B 4GB. I do not recommend using
 
 To run this project is as simple as deploying it to a balenaCloud application; no additional configuration is required.
 
-### Setup the Raspberry Pi :cd:
+### Setup the device :cd:
 
 * Sign up for or login to the [balenaCloud dashboard](https://dashboard.balena-cloud.com)
 * Create an application, selecting the correct device type for your Raspberry Pi
 * Add a device to the application, enabling you to download the OS
 * Flash the downloaded OS to your SD card with [balenaEtcher](https://balena.io/etcher)
-* Power up the Pi and check it's online in the dashboard
+* Power up the board and check it's online in the dashboard
 
 ### One Click Deployment
 
