@@ -1,15 +1,16 @@
-
-version: "2"
-slug: "balena-minecraft-server"
 name: "Minecraft Server"
+description: "Build a Minecraft Server using a Raspberry Pi 4! Supports common Servers, SCP, RCON and Wifi Connect."
 type: "sw.application"
 assets:
-  - url: "https://github.com/AlexProgrammerDE/balena-minecraft-server"
-    name: "repository"
-  - url: "https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png"
-    name: "logo"
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/AlexProgrammerDE/balena-minecraft-server"
+  logo:
+    type: "blob.asset"
+    data:
+      url: "https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png"
 data:
-  description: "Build a Minecraft Server using a Raspberry Pi 4! Supports common Servers, SCP, RCON and Wifi Connect."
   applicationEnvironmentVariables:
   defaultDeviceType: "raspberrypi4-64"
   supportedDeviceTypes:
