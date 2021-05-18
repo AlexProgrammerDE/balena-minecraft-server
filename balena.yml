@@ -1,25 +1,27 @@
-name: "Minecraft Server"
-type: sw.application
+name: Minecraft Server
 description: >-
-  Build a Minecraft Server using a Raspberry Pi 4! Supports common Servers, SCP, RCON and Wifi Connect.
+  Build a Minecraft Server using a Raspberry Pi 4! 
+  Supports common Servers, SCP, RCON and Wifi Connect.
 fleetcta: Lets break some blocks!
 post-provisioning: >-
   ## Usage instructions
+  
   Once your device joins the fleet you'll need to allow some time for it to download the application. When it's done it tries to download the server software and run it. You should then be able to connect to the server via connecting `balenaminecraftserver` locally inside minecraft.
   For detailed instructions on how to use configure your server check out the [readme here](https://github.com/AlexProgrammerDE/balena-minecraft-server).
+type: sw.application
 assets:
   repository:
-    type: "blob.asset"
+    type: blob.asset
     data:
-      url: "https://github.com/AlexProgrammerDE/balena-minecraft-server"
+      url: 'https://github.com/AlexProgrammerDE/balena-minecraft-server'
   logo:
-    type: "blob.asset"
+    type: blob.asset
     data:
-      url: "https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png"
+      url: 'https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png'
 data:
   applicationEnvironmentVariables:
     - RAM: 1G
-  defaultDeviceType: "raspberrypi4-64"
+  defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
-    - "raspberrypi4-64"
-    - "jetson-nano"
+    - raspberrypi4-64
+    - jetson-nano
