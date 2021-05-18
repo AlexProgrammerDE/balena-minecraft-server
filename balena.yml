@@ -17,7 +17,8 @@ assets:
   logo:
     type: blob.asset
     data:
-      url: 'https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png'
+      url: >-
+        https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png
 data:
   applicationEnvironmentVariables:
     - RAM: 1G
