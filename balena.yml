@@ -1,6 +1,7 @@
 name: "Minecraft Server"
-type: "sw.application"
-description: "Build a Minecraft Server using a Raspberry Pi 4! Supports common Servers, SCP, RCON and Wifi Connect."
+type: sw.application
+description: >-
+  Build a Minecraft Server using a Raspberry Pi 4! Supports common Servers, SCP, RCON and Wifi Connect.
 fleetcta: Lets break some blocks!
 post-provisioning: >-
   ## Usage instructions
@@ -17,6 +18,7 @@ assets:
       url: "https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png"
 data:
   applicationEnvironmentVariables:
+    - RAM: 1G
   defaultDeviceType: "raspberrypi4-64"
   supportedDeviceTypes:
     - "raspberrypi4-64"
