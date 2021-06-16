@@ -13,7 +13,7 @@ if [[ -z "$DEVICE_HOSTNAME" ]]; then
 fi
 
 if [[ -z "$JAR_FILE" ]]; then
-  JAR_FILE="paper.jar"
+  JAR_FILE="server.jar"
 fi
 
 if [[ -z "$RAM" ]]; then
@@ -46,8 +46,10 @@ cd /usr/src/serverfiles/
 printf "%s" "Checking server JAR... "
 # Check to see if we have a server jar, and if we do, is it valid?
 if [[ ! -e $JAR_FILE ]]; then
-  printf "%s\n" "No server JAR found."
-  exit 1
+  printf "%s\n" "No server JAR found. Downloading from official website"
+  wget -O server.jar -T 15 -c https://launcher.mojang.com/v1/objects/0a269b5f2c5b93b1712d0f5dc43b6182b9ab254e/server.jar
+  JAR_FILE="server.jar"
+  printf "%s\n" "Download complete"
 fi
 
 

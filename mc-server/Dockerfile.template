@@ -1,8 +1,5 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:latest
 
-# \/ If you want to use java 8 delete the # in front of the line below and add a # in front of the first line \/
-# FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:8-jdk-stretch
-
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 RUN install_packages wget jq
@@ -13,7 +10,7 @@ COPY start.sh /usr/src/
 
 ADD https://download.java.net/java/GA/jdk16.0.1/7147401fd7354114ac51ef3e1328291f/9/GPL/openjdk-16.0.1_linux-aarch64_bin.tar.gz /opt/
 
-RUN tar -zxf /openjdk-16.0.1_linux-aarch64_bin.tar.gz -C /opt/
+RUN tar -zxf /opt/openjdk-16.0.1_linux-aarch64_bin.tar.gz -C /opt/
 
 RUN chmod +x /usr/src/start.sh
 
