@@ -86,7 +86,7 @@ cd /usr/src/serverfiles/
 
 # Do that forever
 printf "%s\n" "Starting JAR file with: $RAM of RAM"
-java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
+/opt/jdk-16.0.1/bin/java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
 
 # Don´t overload the server if the start fails 
 sleep 10
