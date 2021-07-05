@@ -1,12 +1,7 @@
-# FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:latest-buster
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:16-jdk-buster
 
 # \/ If you want to use java 8 delete the # in front of the line below and add a # in front of the first line \/
 # FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-openjdk:8-jdk-stretch
-
-# Temporary solution for java 16
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:latest
-
-ADD https://download.java.net/java/GA/jdk16.0.1/7147401fd7354114ac51ef3e1328291f/9/GPL/openjdk-16.0.1_linux-aarch64_bin.tar.gz /opt/
 
 RUN tar -zxf /opt/openjdk-16.0.1_linux-aarch64_bin.tar.gz -C /opt/
 
