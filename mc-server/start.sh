@@ -86,7 +86,12 @@ cd /usr/src/serverfiles/
 
 # Do that forever
 printf "%s\n" "Starting JAR file with: $RAM of RAM"
-java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
+if [[ ! -z "$ENABLE_ZGC" ]]; then
+  #starting java with the Z Garbage Collector enabled
+  java -XX:+UseZGC -Xmx$RAM -Xlog:gc -Xms$RAM -jar $JAR_FILE
+else
+  java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
+fi
 
 # Don´t overload the server if the start fails 
 sleep 10
