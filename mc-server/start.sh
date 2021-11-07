@@ -86,9 +86,9 @@ cd /usr/src/serverfiles/
 
 # Do that forever
 printf "%s\n" "Starting JAR file with: $RAM of RAM"
-if [[ ! -z "$ENABLE_ZGC" ]]; then
-  #starting java with the Z Garbage Collector enabled
-  java -XX:+UseZGC -Xmx$RAM -Xlog:gc -Xms$RAM -jar $JAR_FILE
+if [[ ! -z "$ENABLE_FLAGS" ]]; then
+  #starting java with the custom flags
+  java $FLAGS -Xmx$RAM -Xms$RAM -jar $JAR_FILE
 else
   java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
 fi
