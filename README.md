@@ -131,6 +131,8 @@ If you want to customize your server even further, but don't know where to start
 
 Note: Balena Minecraft Server uses Paper. It is an efficient and powerful server. It is compatible with spigot and bukkit plugins.
 
+If you want to use a different Minecraft Sever .jar, add a variable called `JAR_FILE`. The value should be the same as your custom .jar file that you placed in the serverfiles directory using SCP.
+
 I encourage you to take your server build even further! There are many tutorials out there on server customization-- this article only touches on a few ideas. If you need help, please reach out by submitting an [issue on GitHub](https://github.com/AlexProgrammerDE/balena-minecraft-server/issues).
 
 This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too. :octocat:
