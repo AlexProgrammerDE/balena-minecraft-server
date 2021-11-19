@@ -2,8 +2,6 @@ name: Version CI
 
 on:
   push:
-    branches:
-      - master
 
 jobs:
   version-ci:
