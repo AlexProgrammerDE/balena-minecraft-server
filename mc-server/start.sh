@@ -9,7 +9,7 @@ get_latest_server() {
 
   printf "%s\n" "Downloading $MC_VERSION build $LATEST_BUILD..."
 
-  echo "$SERVER_JAR_SHA256 paper.jar" >papersha256.txt
+  echo "$SERVER_JAR_SHA256 paper.jar" > papersha256.txt
   wget --quiet -O paper.jar -T 60 $SERVER_JAR_URL
 }
 
@@ -38,9 +38,9 @@ if [[ -z "$RAM" ]]; then
 fi
 
 if [[ -z "$FLAGS" ]]; then
-  if [[ -z "$AIKAR_FLAGS" ]]; then
+  if [[ -n "$AIKAR_FLAGS" ]]; then
     FLAGS="$AIKAR_FLAGS_CONSTANT"
-  elif [[ -z "$ZGC_FLAGS" ]]; then
+  elif [[ -n "$ZGC_FLAGS" ]]; then
     FLAGS="$ZGC_FLAGS_CONSTANT"
   fi
 fi
