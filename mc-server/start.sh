@@ -13,6 +13,10 @@ get_latest_server() {
   wget --quiet -O paper.jar -T 60 $SERVER_JAR_URL
 }
 
+# Declare some constants
+AIKAR_FLAGS_CONSTANT="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true"
+ZGC_FLAGS_CONSTANT="-XX:+UseZGC"
+
 # Wait for working internet access here
 wget --quiet --spider https://papermc.io 2>&1
 if [ $? -eq 1 ]; then
@@ -33,11 +37,19 @@ if [[ -z "$RAM" ]]; then
   RAM="1G"
 fi
 
+if [[ -z "$FLAGS" ]]; then
+  if [[ -n "$AIKAR_FLAGS" ]]; then
+    FLAGS="$AIKAR_FLAGS_CONSTANT"
+  elif [[ -n "$ZGC_FLAGS" ]]; then
+    FLAGS="$ZGC_FLAGS_CONSTANT"
+  fi
+fi
+
 printf "%s\n" "Setting device hostname to: $DEVICE_HOSTNAME"
 
 curl -s -X PATCH --header "Content-Type:application/json" \
-    --data '{"network": {"hostname": "'"${DEVICE_HOSTNAME}"'"}}' \
-    "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY" > /dev/null
+  --data '{"network": {"hostname": "'"${DEVICE_HOSTNAME}"'"}}' \
+  "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY" >/dev/null
 
 # Download a server JAR if we don't already have a valid one
 # And copy the server files into the directory on first run
@@ -45,15 +57,15 @@ printf "\n\n%s\n\n" "Starting balenaMinecraftServer..."
 if [[ -z "$ENABLE_UPDATE" ]]; then
   if [[ ! -e "/servercache/copied.txt" ]]; then
     printf "%s\n" "Copying config"
-    # Copy the serverfiles to the volume
+    # Copy the server files to the volume
     cp -R /serverfiles /usr/src/
-    # Mark this is done and store the SHA256 we're using
+    # Mark this is done
     touch /servercache/copied.txt
   else
     printf "%s\n" "Config already copied"
   fi
 
-  cd /usr/src/serverfiles/
+  cd /usr/src/serverfiles/ || exit
 
   printf "%s" "Checking server JAR... "
   # Check to see if we have a server jar, and if we do, is it valid?
@@ -70,23 +82,23 @@ if [[ -z "$ENABLE_UPDATE" ]]; then
     printf "%s\n" "Found a valid server file. It's called: $(ls *.jar). Use ENABLE_UPDATE to update."
   fi
 else
-# But also allow forcing of an update
+  # Force paper jar updating
   printf "%s\n" "Forcing server update"
   get_latest_server
 fi
 
-if [[ ! -z "$ENABLE_CONFIG_UPDATE" ]]; then
-  # Copy the serverfiles to the volume
+if [[ -n "$ENABLE_CONFIG_UPDATE" ]]; then
+  # Copy the server files to the volume
   printf "%s\n" "Forcing config copy"
   cp -R /serverfiles /usr/src/
 fi
 
-# Make sure you are in the file volume
-cd /usr/src/serverfiles/
+# Make sure we are in the file volume
+cd /usr/src/serverfiles/ || exit
 
-# Do that forever
 printf "%s\n" "Starting JAR file with: $RAM of RAM"
-java -Xms$RAM -Xmx$RAM -jar $JAR_FILE
+# Start java with the custom flags
+java $FLAGS -Xms$RAM -Xmx$RAM -jar $JAR_FILE nogui
 
-# Don´t overload the server if the start fails 
+# Don't overload the server if the start fails
 sleep 10
