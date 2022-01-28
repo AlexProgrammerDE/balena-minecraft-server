@@ -7,8 +7,8 @@ This project has been tested on a Raspberry Pi 4 B 4GB & Nvidia Jetson Nano. I d
 
 ## Why balenaMinecraftServer?
 
-* It works out of the box, just start it and it just works. :+1:
-* You can play anywhere. You can take the Pi to a friend, connect to his Wifi and enjoy playing. :video_game:
+* It works out of the box, just start it, and it just works. :+1:
+* You can play anywhere. You can take the Pi to a friend, connect to his Wi-Fi and enjoy playing. :video_game:
 * It is free. No costs, no big server and no complication. :free:
 * Why host on a computer? A Pi is power efficient! :rocket:
 * You can easy maintain the files on the Pi by using your PC. :computer:
@@ -108,19 +108,19 @@ Once you’ve perfected the setup of your server on your local network, you migh
 
 ![NO-IP Picture](images/NO-IP.png)
 
-If you’d like to allow friends outside of your local network to join your server, you’ll need to set up dynamic DNS (DDNS) to expose your Pi to the outside world. This example uses a service called No-IP, which has a free tier for people who want to try DDNS out, though other options and methods do exist as well. In the case of this example, you will need to: 
+If you’d like to allow friends outside your local network to join your server, you’ll need to set up dynamic DNS (DDNS) to expose your Pi to the outside world. This example uses a service called No-IP, which has a free tier for people who want to try DDNS out, though other options and methods do exist as well. In the case of this example, you will need to: 
 
 * Create an account with [No-IP](https://www.noip.com/sign-up) by visiting their website.
 * After creating the account and logging in, create a Hostname (example: balena.serverminecraft.net) by [following their documentation](https://www.noip.com/support/knowledgebase/getting-started-with-no-ip-com/).
 * Set up Port Forwarding: You will need to route your Minecraft traffic to port 25565 on your Pi. To do this, you will log in to your home router and setup Port Forwarding. This step varies by particular brand of modem or router, but the No-IP documentation does a good job of describing the process [here](https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/). You may need to follow instructions specific to your modem or router if the No-IP documentation does not contain your particular type.
-* Optional: You can login to No-IP with your router to keep the IP Address current in case it changes. That allows the router to connect automatically to No-IP. Here is a [guide by No-IP](https://www.noip.com/support/knowledgebase/how-to-configure-ddns-in-router/) on how to accomplish this.
+* Optional: You can log in to No-IP with your router to keep the IP Address current in case it changes. That allows the router to connect automatically to No-IP. Here is a [guide by No-IP](https://www.noip.com/support/knowledgebase/how-to-configure-ddns-in-router/) on how to accomplish this.
 * Paste your public / external internet address in the box labeled IP Address into the No-IP dashboard. You're done. 👍
 
 For a deeper look at setting up remote access, please [reference this guide](https://www.noip.com/support/knowledgebase/getting-started-with-no-ip-com/) (Note: You can skip the DUC part).
 
 ## Custom Server (optional) :eyeglasses:
 
-If you want to customize your server even further, but don't know where to start, take a look at some of the servers listed here for ideas:
+If you want to customize your server even further, but don't know where to start, take a look at some server software listed here:
 
 * Spigot (Vanilla Java Edition): https://getbukkit.org/download/spigot
 * Purpur (Vanilla Java Edition, very well optimized for 1.16.3) https://purpur.pl3x.net/
