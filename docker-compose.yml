@@ -12,9 +12,7 @@ services:
       - serverfiles:/usr/src/serverfiles
       - servercache:/servercache
     ports:
-      - "25565:25565/udp"
       - "25565:25565/tcp"
-      - "25575:25575/udp"
       - "25575:25575/tcp"
   scp-server:
     network_mode: host
@@ -43,7 +41,6 @@ services:
     build: ./balena-rcon
     privileged: true
     ports:
-      - "25575:25575/udp"
       - "25575:25575/tcp"
 volumes:
   serverfiles:
