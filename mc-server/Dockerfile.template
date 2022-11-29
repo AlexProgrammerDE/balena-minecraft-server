@@ -1,8 +1,8 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:latest
+FROM balenalib/%%BALENA_MACHINE_NAME%%-openjdk:17-latest
 
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
-RUN install_packages wget jq openjdk-17-jre
+RUN install_packages wget jq
 
 COPY . /
 
