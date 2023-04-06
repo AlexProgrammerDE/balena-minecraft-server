@@ -96,9 +96,13 @@ fi
 # Make sure we are in the file volume
 cd /usr/src/serverfiles/ || exit
 
-printf "%s\n" "Starting JAR file with: $RAM of RAM"
-# Start java with the custom flags
-java -Xms$RAM -Xmx$RAM $FLAGS -jar $JAR_FILE nogui
+if [[ -z "$CUSTOM_COMMAND" ]]; then
+  printf "%s\n" "Starting JAR file with: $RAM of RAM"
+  # Start java with the custom flags
+  java -Xms$RAM -Xmx$RAM $FLAGS -jar $JAR_FILE nogui
+else
+  $CUSTOM_COMMAND
+fi
 
 # Don't overload the server if the start fails
 sleep 10
