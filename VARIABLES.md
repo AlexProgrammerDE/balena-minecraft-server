@@ -16,8 +16,6 @@ The available built in variables for this project.
 | ENABLE_CONFIG_UPDATE | false                 | Forces a server config update                                                                                                                                          |
 | CUSTOM_COMMAND       |                       | Overwrites java start command with custom shell command                                                                                                                                  |
 
-CUSTOM_COMMAND
-
 ## scp-server
 
 | Name         | Default | Description                                     |
