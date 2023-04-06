@@ -14,6 +14,9 @@ The available built in variables for this project.
 | ZGC_FLAGS            | false                 | Add ZGC startup flags to the startup command                                                                                                                           |
 | ENABLE_UPDATE        | false                 | Forces a server jar update                                                                                                                                             |
 | ENABLE_CONFIG_UPDATE | false                 | Forces a server config update                                                                                                                                          |
+| CUSTOM_COMMAND       |                       | Overwrites java start command with custom shell command                                                                                                                                  |
+
+CUSTOM_COMMAND
 
 ## scp-server
 
