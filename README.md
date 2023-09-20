@@ -133,9 +133,15 @@ Note: Balena Minecraft Server uses Paper. It is an efficient and powerful server
 
 If you want to use a different Minecraft Sever .jar, add a variable called `JAR_FILE`. The value should be the same as your custom .jar file that you placed in the serverfiles directory using SCP.
 
-I encourage you to take your server build even further! There are many tutorials out there on server customization-- this article only touches on a few ideas. If you need help, please reach out by submitting an [issue on GitHub](https://github.com/AlexProgrammerDE/balena-minecraft-server/issues).
+I encourage you to take your server build even further! There are many tutorials out there on server customization-- this README only touches on a few ideas. If you need help, please reach out by submitting an [issue on GitHub](https://github.com/AlexProgrammerDE/balena-minecraft-server/issues).
 
-This project is in active development so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too. :octocat:
+## 🌈 Community
+
+Feel free to join our Discord community server:
+
+[![Discord Banner](https://discord.com/api/guilds/739784741124833301/widget.png?style=banner2)](https://discord.gg/CDrcxzH)
+
+This project is in active development, so if you have any feature requests or issues please submit them here on GitHub. PRs are welcome, too. :octocat:
 
 Here is a little server demo :crown::
 
