@@ -2,7 +2,16 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:latest
 
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
-RUN install_packages wget jq openjdk-17-jre
+RUN install_packages wget jq
+
+SHELL ["/bin/bash", "-c"]
+
+RUN wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.3%2B9/OpenJDK21U-jre_aarch64_linux_hotspot_21.0.3_9.tar.gz  \
+    && tar xvf OpenJDK21U-jre_aarch64_linux_hotspot_21.0.3_9.tar.gz
+
+RUN mv jdk-21.0.3+9-jre /usr/local/jdk-21.0.3+9-jre
+
+RUN ln -s /usr/local/jdk-21.0.3+9-jre/bin/java /bin/java
 
 COPY . /
 
