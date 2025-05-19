@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Get all the information about the latest
 get_latest_server() {
-  MC_VERSION=$(curl -s "https://papermc.io/api/v2/projects/paper/" | jq -r -e .versions[-1])
-  LATEST_BUILD=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION" | jq -r -e .builds[-1])
-  SERVER_JAR_FILENAME=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.name)
-  SERVER_JAR_SHA256=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.sha256)
-  SERVER_JAR_URL="https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/downloads/$SERVER_JAR_FILENAME"
+  MC_VERSION=$(curl -s "https://api.papermc.io/v2/projects/paper/" | jq -r -e .versions[-1])
+  LATEST_BUILD=$(curl -s "https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION" | jq -r -e .builds[-1])
+  SERVER_JAR_FILENAME=$(curl -s "https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.name)
+  SERVER_JAR_SHA256=$(curl -s "https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.sha256)
+  SERVER_JAR_URL="https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/downloads/$SERVER_JAR_FILENAME"
 
   printf "%s\n" "Downloading $MC_VERSION build $LATEST_BUILD..."
 
