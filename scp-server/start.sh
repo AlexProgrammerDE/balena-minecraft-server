@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
+# SSH/SCP/SFTP access to /serverfiles as root, with the password from SCP_PASSWORD.
 
-if [[ -z "$SCP_PASSWORD" ]]; then
-  export SCP_PASSWORD=balena
-fi
-
-# here we set up the config for openSSH.
-mkdir /var/run/sshd
+SCP_PASSWORD=${SCP_PASSWORD:-balena}
 echo "root:$SCP_PASSWORD" | chpasswd
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
-# SSH login fix. Otherwise user is kicked off after login. 
-# Apparently not needed with balena image
-# sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+# Keep host keys in the cache volume so clients don't see a new host key after every update
+KEY_DIR=/servercache/ssh
+mkdir -p "$KEY_DIR" /run/sshd
+CONF=/etc/ssh/sshd_config.d/balena.conf
+printf 'PermitRootLogin yes\nPasswordAuthentication yes\n' >"$CONF"
+for type in ed25519 rsa; do
+  key="$KEY_DIR/ssh_host_${type}_key"
+  [[ -f "$key" ]] || ssh-keygen -q -N "" -t "$type" -f "$key"
+  echo "HostKey $key" >>"$CONF"
+done
 
-export NOTVISIBLE="in users profile"
-echo "export VISIBLE=now" >> /etc/profile
-
-exec /usr/sbin/sshd -D
+exec /usr/sbin/sshd -D -e

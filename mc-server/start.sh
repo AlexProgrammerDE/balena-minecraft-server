@@ -1,108 +1,110 @@
 #!/usr/bin/env bash
-# Get all the information about the latest
-get_latest_server() {
-  MC_VERSION=$(curl -s "https://api.papermc.io/v2/projects/paper/" | jq -r -e .versions[-1])
-  LATEST_BUILD=$(curl -s "https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION" | jq -r -e .builds[-1])
-  SERVER_JAR_FILENAME=$(curl -s "https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.name)
-  SERVER_JAR_SHA256=$(curl -s "https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.sha256)
-  SERVER_JAR_URL="https://api.papermc.io/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/downloads/$SERVER_JAR_FILENAME"
+# Starts a Paper server from the serverfiles volume.
+# Downloads the newest stable Paper build from PaperMC's Fill v3 API when there is no valid jar.
 
-  printf "%s\n" "Downloading $MC_VERSION build $LATEST_BUILD..."
+FILL_API="https://fill.papermc.io/v3/projects/paper"
+USER_AGENT="balena-minecraft-server/2.0 (+https://github.com/AlexProgrammerDE/balena-minecraft-server)"
+SERVER_DIR=/usr/src/serverfiles
 
-  echo "$SERVER_JAR_SHA256 paper.jar" > papersha256.txt
-  wget --quiet -O paper.jar -T 60 $SERVER_JAR_URL
+AIKAR_FLAGS_CONSTANT="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true"
+ZGC_FLAGS_CONSTANT="-XX:+UseZGC -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:-OmitStackTraceInFastThrow -XX:+ShowCodeDetailsInExceptionMessages -XX:+DisableExplicitGC -XX:-UseParallelGC -XX:+PerfDisableSharedMem -XX:-ZUncommit -XX:ZUncommitDelay=300 -XX:ZCollectionInterval=5 -XX:ZAllocationSpikeTolerance=2.0 -XX:+AlwaysPreTouch -XX:+UseTransparentHugePages -XX:LargePageSizeInBytes=2M -XX:+UseLargePages -XX:+ParallelRefProcEnabled"
+
+is_true() { [[ "${1,,}" == "true" || "$1" == "1" ]]; }
+
+fill_get() { curl -fsSL --retry 3 --max-time 120 -A "$USER_AGENT" "$@"; }
+
+# Sets PAPER_VERSION and PAPER_BUILD (build JSON) to the newest stable build.
+# MC_VERSION pins the Minecraft version; otherwise the newest version with a stable build wins.
+resolve_build() {
+  local candidates version build
+  if [[ -n "$MC_VERSION" ]]; then
+    candidates="$MC_VERSION"
+  else
+    # Fill lists versions newest first; release candidates have no STABLE builds and get skipped.
+    candidates=$(fill_get "$FILL_API" | jq -r '.versions | to_entries[].value[]' | head -n 10)
+  fi
+  for version in $candidates; do
+    build=$(fill_get "$FILL_API/versions/$version/builds?channel=STABLE" | jq -ce '.[0] // empty' 2>/dev/null) || continue
+    PAPER_VERSION=$version
+    PAPER_BUILD=$build
+    return 0
+  done
+  return 1
 }
 
-# Declare some constants
-AIKAR_FLAGS_CONSTANT="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true"
-ZGC_FLAGS_CONSTANT="-XX:+UseZGC -XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:-OmitStackTraceInFastThrow -XX:+ShowCodeDetailsInExceptionMessages -XX:+DisableExplicitGC -XX:-UseParallelGC -XX:-UseParallelOldGC -XX:+PerfDisableSharedMem -XX:-ZUncommit -XX:ZUncommitDelay=300 -XX:ZCollectionInterval=5 -XX:ZAllocationSpikeTolerance=2.0 -XX:+AlwaysPreTouch -XX:+UseTransparentHugePages -XX:LargePageSizeInBytes=2M -XX:+UseLargePages -XX:+ParallelRefProcEnabled"
+download_server() {
+  local name url sha
+  if ! resolve_build; then
+    echo "Could not find a stable Paper build${MC_VERSION:+ for $MC_VERSION}"
+    return 1
+  fi
+  name=$(jq -r '.downloads["server:default"].name' <<<"$PAPER_BUILD")
+  url=$(jq -r '.downloads["server:default"].url' <<<"$PAPER_BUILD")
+  sha=$(jq -r '.downloads["server:default"].checksums.sha256' <<<"$PAPER_BUILD")
 
-# Wait for working internet access here
-wget --quiet --spider https://papermc.io 2>&1
-if [ $? -eq 1 ]; then
-  echo "No internet access - exiting"
-  sleep 10
-  exit 1
-fi
+  echo "Downloading Paper $PAPER_VERSION build $(jq -r .id <<<"$PAPER_BUILD") ($name)..."
+  fill_get -o paper.jar.download "$url" || return 1
+  if ! echo "$sha  paper.jar.download" | sha256sum -c --status; then
+    echo "Checksum mismatch for $name, discarding it"
+    rm -f paper.jar.download
+    return 1
+  fi
+  mv paper.jar.download paper.jar
+  echo "$sha  paper.jar" >papersha256.txt
+}
 
-if [[ -z "$DEVICE_HOSTNAME" ]]; then
-  DEVICE_HOSTNAME=balenaminecraftserver
-fi
-
-if [[ -z "$JAR_FILE" ]]; then
-  JAR_FILE="paper.jar"
-fi
-
-if [[ -z "$RAM" ]]; then
-  RAM="1G"
-fi
+DEVICE_HOSTNAME=${DEVICE_HOSTNAME:-balenaminecraftserver}
+JAR_FILE=${JAR_FILE:-paper.jar}
+RAM=${RAM:-1G}
 
 if [[ -z "$FLAGS" ]]; then
-  if [[ -n "$AIKAR_FLAGS" ]]; then
+  if is_true "$AIKAR_FLAGS"; then
     FLAGS="$AIKAR_FLAGS_CONSTANT"
-  elif [[ -n "$ZGC_FLAGS" ]]; then
+  elif is_true "$ZGC_FLAGS"; then
     FLAGS="$ZGC_FLAGS_CONSTANT"
   fi
 fi
 
-printf "%s\n" "Setting device hostname to: $DEVICE_HOSTNAME"
-
+echo "Setting device hostname to: $DEVICE_HOSTNAME"
 curl -s -X PATCH --header "Content-Type:application/json" \
   --data '{"network": {"hostname": "'"${DEVICE_HOSTNAME}"'"}}' \
   "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY" >/dev/null
 
-# Download a server JAR if we don't already have a valid one
-# And copy the server files into the directory on first run
-printf "\n\n%s\n\n" "Starting balenaMinecraftServer..."
-if [[ -z "$ENABLE_UPDATE" ]]; then
-  if [[ ! -e "/servercache/copied.txt" ]]; then
-    printf "%s\n" "Copying config"
-    # Copy the server files to the volume
-    cp -R /serverfiles /usr/src/
-    # Mark this is done
-    touch /servercache/copied.txt
+echo "Starting balenaMinecraftServer..."
+cd "$SERVER_DIR" || exit 1
+
+# Copy the default config into the volume on first run (or when forced)
+if [[ ! -e /servercache/copied.txt ]]; then
+  echo "First run: copying default server config"
+  cp -R /serverfiles/. "$SERVER_DIR"/
+  touch /servercache/copied.txt
+elif is_true "$ENABLE_CONFIG_UPDATE"; then
+  echo "ENABLE_CONFIG_UPDATE is set: overwriting server config"
+  cp -R /serverfiles/. "$SERVER_DIR"/
+fi
+
+# A custom JAR_FILE is uploaded by the user, so only manage paper.jar
+if [[ "$JAR_FILE" == "paper.jar" ]]; then
+  if is_true "$ENABLE_UPDATE"; then
+    echo "ENABLE_UPDATE is set: fetching the newest Paper build"
+    download_server || echo "Update failed, keeping the current paper.jar"
+  elif [[ -e paper.jar ]] && sha256sum -c --status papersha256.txt 2>/dev/null; then
+    echo "Found a valid paper.jar. Set ENABLE_UPDATE=true to update it."
   else
-    printf "%s\n" "Config already copied"
+    echo "No valid paper.jar found"
+    if ! download_server; then
+      echo "Download failed, retrying in 30 seconds"
+      sleep 30
+      exit 1
+    fi
   fi
-
-  cd /usr/src/serverfiles/ || exit
-
-  printf "%s" "Checking server JAR... "
-  # Check to see if we have a server jar, and if we do, is it valid?
-  if [[ ! -e "paper.jar" ]]; then
-    printf "%s\n" "No server JAR found."
-    get_latest_server
-  fi
-
-  # We have a paper.jar, is it valid?
-  if [[ $(sha256sum -c papersha256.txt --status 2>/dev/null) -eq 1 || ! -e "papersha256.txt" ]]; then
-    printf "%s\n" "Server JAR not valid."
-    get_latest_server
-  else
-    printf "%s\n" "Found a valid server file. It's called: $(ls *.jar). Use ENABLE_UPDATE to update."
-  fi
-else
-  # Force paper jar updating
-  printf "%s\n" "Forcing server update"
-  get_latest_server
 fi
 
-if [[ -n "$ENABLE_CONFIG_UPDATE" ]]; then
-  # Copy the server files to the volume
-  printf "%s\n" "Forcing config copy"
-  cp -R /serverfiles /usr/src/
+if [[ -n "$CUSTOM_COMMAND" ]]; then
+  exec bash -c "$CUSTOM_COMMAND"
 fi
 
-# Make sure we are in the file volume
-cd /usr/src/serverfiles/ || exit
-
-if [[ -z "$CUSTOM_COMMAND" ]]; then
-  printf "%s\n" "Starting JAR file with: $RAM of RAM"
-  # Start java with the custom flags
-  java -Xms$RAM -Xmx$RAM $FLAGS -jar $JAR_FILE nogui
-else
-  $CUSTOM_COMMAND
-fi
-
-# Don't overload the server if the start fails
-sleep 10
+echo "Starting $JAR_FILE with $RAM of RAM"
+# exec makes java PID 1, so it receives the stop signal and Paper saves the worlds before exiting
+# shellcheck disable=SC2086 # FLAGS is a list of separate JVM options
+exec java -Xms"$RAM" -Xmx"$RAM" $FLAGS -jar "$JAR_FILE" nogui
